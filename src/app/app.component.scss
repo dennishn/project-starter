@@ -1,0 +1,28 @@
+.toolbar-title,
+.toolbar-avatar {
+  font-size: 1rem;
+}
+
+.toolbar-avatar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    margin: 0 .5rem;
+    cursor: default;
+  }
+
+  img {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  md-icon {
+    cursor: pointer;
+  }
+}
+
+.toolbar-fill-remaining-space {
+  flex: 1 1 auto;
+}

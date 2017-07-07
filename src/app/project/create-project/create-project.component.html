@@ -1,0 +1,47 @@
+<div class="grid-container">
+  <div class="grid-x grid-padding-x grid-padding-y align-center">
+    <div class="small-12 medium-8 cell">
+      <h1>
+        Create a new Trello Project Board
+      </h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At delectus iste magnam recusandae reiciendis rerum sequi sit tempore! Ad aperiam nisi non, quod ratione recusandae rerum sed similique! Facere, sapiente.</p>
+    </div>
+  </div>
+
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" novalidate class="grid-x grid-padding-x align-center">
+
+    <md-input-container class="small-12 medium-8 cell app-spacing-y">
+      <input mdInput type="text" placeholder="Project ID" formControlName="id" required>
+      <md-error *ngIf="projectForm.get('id').hasError('pattern')">
+        Project ID should consist only of numbers
+      </md-error>
+      <md-error *ngIf="projectForm.get('id').hasError('required')">
+        Please enter the Project ID
+      </md-error>
+      <md-hint>Something about finding it on Ournodes</md-hint>
+    </md-input-container>
+
+    <md-input-container class="small-12 medium-8 cell app-spacing-y">
+      <input mdInput type="text" placeholder="Project Name" formControlName="name" required>
+      <md-error *ngIf="projectForm.get('name').hasError('required')">
+        Please enter a Project Name
+      </md-error>
+    </md-input-container>
+
+    <div class="small-12 medium-8 cell app-spacing-y">
+      <md-checkbox color="primary" formControlName="templateBoard">
+        Use Template Board?
+      </md-checkbox>
+    </div>
+
+    <div class="small-12 medium-8 cell app-spacing-y">
+      <p>
+        Board Name on Trello: <span>[{{projectForm.get('id').value}}] {{projectForm.get('name').value}}</span>
+      </p>
+    </div>
+
+    <div class="small-12 medium-8 cell app-spacing-y">
+      <button md-raised-button color="primary" type="submit" [disabled]="projectForm.pristine || projectForm.invalid">Create new Project Board</button>
+    </div>
+  </form>
+</div>

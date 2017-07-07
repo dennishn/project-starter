@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import "styles/foundation-settings";
+@import "~foundation-sites/scss/foundation";
+
+@include foundation-global-styles;
+@include foundation-xy-grid-classes(
+        $base-grid: true,
+        $margin-grid: true,
+        $padding-grid: true,
+        $block-grid: true,
+        $collapse: true,
+        $offset: true,
+        $vertical-grid: true
+);
+@include foundation-flex-classes;
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.app-spacing-y {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+.app-full-height {
+  height: calc(100vh - 64px);
+}
+
+.app-progress-bar {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+}

@@ -5,6 +5,14 @@ const routes: Routes = [
   {
     path: '',
     children: []
+  },
+  {
+    path: 'auth',
+    loadChildren: 'app/keychain/keychain.module#KeychainModule'
+  },
+  {
+    path: 'project',
+    loadChildren: 'app/project/project.module#ProjectModule'
   }
 ];
 
