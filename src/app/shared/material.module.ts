@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import {
-    MdButtonModule, MdCheckboxModule, MdIconModule, MdInputModule, MdProgressBarModule, MdToolbarModule,
+    MdButtonModule, MdCheckboxModule, MdIconModule, MdInputModule, MdProgressBarModule, MdSnackBarModule,
+    MdToolbarModule,
     MdTooltipModule
 } from "@angular/material";
 
@@ -12,7 +13,8 @@ import {
       MdCheckboxModule,
       MdToolbarModule,
       MdTooltipModule,
-      MdProgressBarModule
+      MdProgressBarModule,
+      MdSnackBarModule
   ],
   exports: [
       MdIconModule,
@@ -21,7 +23,8 @@ import {
       MdCheckboxModule,
       MdToolbarModule,
       MdTooltipModule,
-      MdProgressBarModule
+      MdProgressBarModule,
+      MdSnackBarModule
   ],
 })
 export class AppMaterialModule { }

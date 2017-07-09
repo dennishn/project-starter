@@ -4,10 +4,13 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "start": "ng serve -o -ec -sm",
     "build": "ng build",
     "build:prod": "ng build --prod --stats-json",
+    "build:gh": "ng build --prod --stats-json  --base-href https://dennishn.github.io/project-starter/",
     "bundle-report": "webpack-bundle-analyzer dist/stats.json",
-    "gh-pages": "github-pages -r dennishn/project-starter -t db845c7dae8f1a80c0194db1b1f1a2f9d365a8d1 ./dist",
+    "gh-pages": "gh-pages -d dist",
+    "gh-pages:deploy": "npm run build:gh && npm run gh-pages",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -38,7 +41,7 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "~3.1.1",
-    "github-pages": "^3.0.2",
+    "gh-pages": "^1.0.0",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",

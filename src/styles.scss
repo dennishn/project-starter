@@ -1,4 +1,11 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import '~@angular/material/theming';
+//@include mat-core();
+//
+//$app-primary: mat-palette($mat-indigo);
+//$app-accent:  mat-palette($mat-pink, A200, A100, A400);
+//$app-theme: mat-light-theme($app-primary, $app-accent);
+//@include angular-material-theme($app-theme);
 
 @import "styles/foundation-settings";
 @import "~foundation-sites/scss/foundation";
@@ -20,13 +27,39 @@ body {
   margin: 0;
 }
 
+.app-full-height {
+  height: calc(100vh - 64px);
+}
+.app-center-content {
+  flex-direction: column;
+  justify-content: center;
+  .cell {
+    text-align: center;
+  }
+}
 .app-spacing-y {
   padding-top: .5rem;
   padding-bottom: .5rem;
+
+  &--xl {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 }
 
-.app-full-height {
-  height: calc(100vh - 64px);
+.app-toolbar {
+  position: relative;
+}
+
+.app-page-header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  background-color: mat-color($mat-grey, 200);
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 .app-progress-bar {
@@ -34,4 +67,22 @@ body {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 999;
+}
+
+.app-panel {
+  margin-top: 1rem;
+  padding: .5rem;
+  cursor: default;
+  background-color: mat-color($mat-grey, 200);
+  p {
+    margin: 0;
+  }
+}
+.app-panel__subheader {
+  font-size: .75rem;
+}
+
+.text-muted {
+  color: mat-color($mat-grey, 500);
 }

@@ -1,7 +1,7 @@
 <md-progress-bar class="app-progress-bar" [mode]="isLoading ? 'indeterminate' : 'determinate'" value="100"></md-progress-bar>
 
-<md-toolbar color="primary">
-    <div class="toolbar-title">Trello Project Board Creator</div>
+<md-toolbar color="primary" class="mat-elevation-z3 app-toolbar">
+    <div class="toolbar-title"><strong>Nodes</strong> Trello Project Board Creator</div>
     <div class="toolbar-fill-remaining-space"></div>
     <div class="toolbar-avatar" *ngIf="isAuthorized && user">
         <img [src]="'https://trello-avatars.s3.amazonaws.com/' + user.avatarHash + '/50.png'">
@@ -12,4 +12,6 @@
     </div>
 </md-toolbar>
 
-<router-outlet></router-outlet>
+<div>
+    <router-outlet></router-outlet>
+</div>

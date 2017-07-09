@@ -1,6 +1,8 @@
 .toolbar-title,
 .toolbar-avatar {
   font-size: 1rem;
+  font-weight: 300;
+  cursor: default;
 }
 
 .toolbar-avatar {
@@ -10,16 +12,18 @@
 
   p {
     margin: 0 .5rem;
-    cursor: default;
+
   }
 
   img {
     border-radius: 50%;
     overflow: hidden;
+    width: 32px;
+    height: 32px;
   }
 
   md-icon {
-    cursor: pointer;
+
   }
 }
 

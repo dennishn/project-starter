@@ -1,47 +1,66 @@
-<div class="grid-container">
-  <div class="grid-x grid-padding-x grid-padding-y align-center">
-    <div class="small-12 medium-8 cell">
-      <h1>
-        Create a new Trello Project Board
-      </h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At delectus iste magnam recusandae reiciendis rerum sequi sit tempore! Ad aperiam nisi non, quod ratione recusandae rerum sed similique! Facere, sapiente.</p>
+<div class="grid-x grid-padding-x grid-padding-y align-center align-middle app-page-header">
+  <div class="small-12 medium-8 cell">
+    <h3>Create a new Trello Project Board</h3>
+    <p>Who doesn't enjoy saving a few clicks? Using this tool you can create a new Trello Board, under our Nodes Organization easily. You can use our Sprint template, or just make a blank board.</p>
+    <p>We take care of formatting the name according to our standards, placing it under our organization and making it visible to everyone, all you need is the <strong>Project ID</strong> and name!</p>
+  </div>
+</div>
+
+<div class="grid-x align-center">
+  <div class="small-12 medium-8 cell">
+    <div class="grid-x grid-padding-x">
+
+      <div class="small-12 medium-8 cell">
+
+        <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" novalidate class="grid-x">
+
+
+            <md-input-container class="app-spacing-y small-12 cell">
+              <input mdInput type="text" placeholder="Project ID" formControlName="id" required>
+              <md-error *ngIf="projectForm.get('id').hasError('pattern')">
+                Project ID should consist only of numbers
+              </md-error>
+              <md-error *ngIf="projectForm.get('id').hasError('required')">
+                Please enter the Project ID
+              </md-error>
+              <md-hint>Something about finding it on Ournodes</md-hint>
+            </md-input-container>
+
+
+
+            <md-input-container class="app-spacing-y small-12 cell">
+              <input mdInput type="text" placeholder="Project Name" formControlName="name" required>
+              <md-error *ngIf="projectForm.get('name').hasError('required')">
+                Please enter a Project Name
+              </md-error>
+            </md-input-container>
+
+
+          <div class="app-spacing-y small-12 cell">
+            <md-checkbox color="primary" formControlName="templateBoard">
+              Use Template Board?
+            </md-checkbox>
+          </div>
+
+          <div class="app-spacing-y small-12 cell">
+            <button md-raised-button color="primary" type="submit" [disabled]="projectForm.pristine || projectForm.invalid">Create new Project Board</button>
+          </div>
+        </form>
+
+      </div>
+      <div class="small-12 medium-4 cell">
+        <div class="app-spacing-y app-spacing-y--xl app-panel">
+          <p class="app-panel__subheader">
+            Board Name on Trello:
+          </p>
+          <p>
+            <span class="text-muted">[</span><span [ngClass]="{'text-muted': projectForm.get('id').pristine}">{{projectForm.get('id').value || '1234'}}</span><span class="text-muted">]</span> <span [ngClass]="{'text-muted': projectForm.get('name').pristine}">{{projectForm.get('name').value || 'Awesome Project Name'}}</span>
+          </p>
+        </div>
+      </div>
+
+
     </div>
   </div>
-
-  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" novalidate class="grid-x grid-padding-x align-center">
-
-    <md-input-container class="small-12 medium-8 cell app-spacing-y">
-      <input mdInput type="text" placeholder="Project ID" formControlName="id" required>
-      <md-error *ngIf="projectForm.get('id').hasError('pattern')">
-        Project ID should consist only of numbers
-      </md-error>
-      <md-error *ngIf="projectForm.get('id').hasError('required')">
-        Please enter the Project ID
-      </md-error>
-      <md-hint>Something about finding it on Ournodes</md-hint>
-    </md-input-container>
-
-    <md-input-container class="small-12 medium-8 cell app-spacing-y">
-      <input mdInput type="text" placeholder="Project Name" formControlName="name" required>
-      <md-error *ngIf="projectForm.get('name').hasError('required')">
-        Please enter a Project Name
-      </md-error>
-    </md-input-container>
-
-    <div class="small-12 medium-8 cell app-spacing-y">
-      <md-checkbox color="primary" formControlName="templateBoard">
-        Use Template Board?
-      </md-checkbox>
-    </div>
-
-    <div class="small-12 medium-8 cell app-spacing-y">
-      <p>
-        Board Name on Trello: <span>[{{projectForm.get('id').value}}] {{projectForm.get('name').value}}</span>
-      </p>
-    </div>
-
-    <div class="small-12 medium-8 cell app-spacing-y">
-      <button md-raised-button color="primary" type="submit" [disabled]="projectForm.pristine || projectForm.invalid">Create new Project Board</button>
-    </div>
-  </form>
 </div>
+
